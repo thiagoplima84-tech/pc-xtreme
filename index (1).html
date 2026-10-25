@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PC Xtreme — Deixe seu PC no máximo para jogos</title>
+<meta name="description" content="PC Xtreme by Tmurat — benchmark, FPS na tela, boost para jogos, saúde do PC e muito mais. Baixe grátis e teste o Premium por 7 dias.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Chakra+Petch:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070912;--panel:#0f1324;--panel2:#161b31;--line:#222a47;--ink:#e7ecff;--dim:#93a0c8;--cyan:#00e5ff;--vio:#8b5cf6;--mag:#ff2e97;--ok:#2bf5a6;--amb:#ffbe00}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:Barlow,system-ui,Segoe UI,Arial,sans-serif;line-height:1.5;overflow-x:hidden}
+.grad{background:linear-gradient(90deg,var(--cyan),var(--vio) 55%,var(--mag));-webkit-background-clip:text;background-clip:text;color:transparent}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+/* fundo decorativo */
+.bgfx{position:fixed;inset:0;z-index:-1;background:
+ radial-gradient(900px 500px at 80% -5%,rgba(139,92,246,.22),transparent 60%),
+ radial-gradient(700px 500px at 10% 10%,rgba(0,229,255,.14),transparent 60%),
+ linear-gradient(#070912,#070912)}
+.bgfx::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:44px 44px;mask:radial-gradient(circle at 50% 0,#000,transparent 70%)}
+/* topo */
+header{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+.logo{display:flex;align-items:center;gap:12px}
+.logo .nm{font:800 22px Barlow;letter-spacing:.5px}
+.logo .by{font-size:12px;color:var(--dim);margin-top:-3px}
+.ghlink{font-size:14px;color:var(--dim);border:1px solid var(--line);padding:8px 14px;border-radius:999px}
+/* hero */
+.hero{text-align:center;padding:52px 0 30px}
+.badge{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--ink);background:rgba(43,245,166,.12);border:1px solid rgba(43,245,166,.35);padding:6px 14px;border-radius:999px;margin-bottom:22px}
+.badge b{color:var(--ok)}
+h1{font:800 clamp(34px,6vw,58px)/1.05 Barlow;letter-spacing:-.5px}
+.hero p.sub{color:var(--dim);font-size:clamp(16px,2.4vw,20px);max-width:620px;margin:18px auto 0}
+.cta{display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:10px;font:700 17px Barlow;padding:16px 30px;border-radius:14px;cursor:pointer;border:0}
+.btn.pri{background:linear-gradient(90deg,var(--cyan),var(--vio));color:#05070f;box-shadow:0 10px 34px rgba(0,229,255,.25)}
+.btn.ghost{background:var(--panel);color:var(--ink);border:1px solid var(--line)}
+.cta .mini{font-size:13px;color:var(--dim)}
+.selo-win{display:inline-flex;gap:7px;align-items:center;color:var(--dim);font-size:13px;margin-top:16px}
+/* janela mock */
+.shot{margin:46px auto 0;max-width:900px;border-radius:16px;border:1px solid var(--line);background:linear-gradient(180deg,#0c1020,#0a0d1a);box-shadow:0 30px 80px rgba(0,0,0,.6);overflow:hidden}
+.shot .bar{display:flex;gap:7px;padding:12px 14px;border-bottom:1px solid var(--line);align-items:center}
+.shot .bar i{width:11px;height:11px;border-radius:50%;display:inline-block}
+.shot .bar .t{margin-left:10px;font-size:12.5px;color:var(--dim)}
+.shot .body{display:grid;grid-template-columns:1.1fr 1fr;gap:16px;padding:22px}
+.ring{aspect-ratio:1;display:grid;place-items:center;position:relative}
+.ring .score{position:absolute;text-align:center}
+.ring .score b{font:800 46px Barlow;display:block;line-height:1}
+.ring .score span{font-size:12px;color:var(--dim)}
+.bars{display:flex;flex-direction:column;gap:14px;justify-content:center}
+.bars .row b{font-size:13px;color:var(--dim);display:flex;justify-content:space-between}
+.bars .tr{height:8px;border-radius:5px;background:var(--panel2);overflow:hidden;margin-top:5px}
+.bars .tr>i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,var(--cyan),var(--vio))}
+/* features */
+section.feats{padding:70px 0 20px}
+.h2{text-align:center;font:800 clamp(26px,4vw,38px) Barlow;margin-bottom:10px}
+.lead{text-align:center;color:var(--dim);max-width:600px;margin:0 auto 40px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;background:rgba(139,92,246,.14);border:1px solid rgba(139,92,246,.3);margin-bottom:14px}
+.card h3{font:700 18px Barlow;margin-bottom:6px}
+.card p{color:var(--dim);font-size:14.5px}
+/* planos */
+section.planos{padding:66px 0}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:860px;margin:36px auto 0}
+.plan{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px;text-align:center;position:relative}
+.plan.dest{border-color:var(--cyan);box-shadow:0 0 0 1px var(--cyan) inset}
+.plan .tag{position:absolute;top:-11px;left:50%;transform:translateX(-50%);font:700 11px Barlow;letter-spacing:.06em;background:linear-gradient(90deg,var(--cyan),var(--vio));color:#05070f;padding:4px 12px;border-radius:999px}
+.plan h4{font:700 16px Barlow;color:var(--dim);text-transform:uppercase;letter-spacing:.05em}
+.plan .pr{font:800 34px Barlow;margin:8px 0 2px}
+.plan .per{font-size:13px;color:var(--dim)}
+.plan .det{font-size:13px;color:var(--dim);margin-top:10px;min-height:34px}
+/* cta final */
+.final{text-align:center;padding:60px 0 20px}
+footer{border-top:1px solid var(--line);margin-top:60px;padding:26px 0;text-align:center;color:var(--dim);font-size:13px}
+@media(max-width:760px){.grid,.pgrid{grid-template-columns:1fr}.shot .body{grid-template-columns:1fr}.ring{max-width:240px;margin:0 auto}}
+</style>
+</head>
+<body>
+<div class="bgfx"></div>
+
+<svg width="0" height="0"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00e5ff"/><stop offset=".5" stop-color="#8b5cf6"/><stop offset="1" stop-color="#ff2e97"/></linearGradient></defs></svg>
+
+<div class="wrap">
+<header>
+  <div class="logo">
+    <svg width="42" height="42" viewBox="0 0 64 64" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="16" fill="url(#lg)"/><rect x="7" y="7" width="50" height="50" rx="12" fill="#080a16"/><path d="M37 10L18 35h12l-4 19 20-27H34l5-17z" fill="url(#lg)"/></svg>
+    <div><div class="nm">PC XTREME</div><div class="by">by Tmurat</div></div>
+  </div>
+  <a class="ghlink" href="https://github.com/thiagoplima84-tech/pc-xtreme/releases/latest">Já tenho — ver atualizações</a>
+</header>
+
+<div class="hero">
+  <div class="badge">⚡ <b>Grátis</b> · Premium 7 dias de teste, sem cartão</div>
+  <h1>Deixe seu PC <span class="grad">no máximo</span><br>para jogos</h1>
+  <p class="sub">Benchmark com nota, FPS na tela, Boost com 1 clique, saúde do seu PC e muito mais. Tudo em português, simples, num app só.</p>
+  <div class="cta">
+    <a class="btn pri" href="https://github.com/thiagoplima84-tech/pc-xtreme/releases/latest">⬇ Baixar o PC Xtreme (Windows)</a>
+    <div class="mini">Grátis · ~1 MB · Windows 10 e 11</div>
+  </div>
+  <div class="selo-win">🛡️ Se o Windows avisar que é de um "editor desconhecido", clique em <b style="color:var(--ink)">Mais informações → Executar assim mesmo</b>. É normal em programas novos.</div>
+
+  <div class="shot" aria-hidden="true">
+    <div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="t">PC Xtreme — Benchmark</span></div>
+    <div class="body">
+      <div class="ring">
+        <svg viewBox="0 0 120 120" width="100%"><circle cx="60" cy="60" r="52" fill="none" stroke="#161b31" stroke-width="10"/><circle cx="60" cy="60" r="52" fill="none" stroke="url(#lg)" stroke-width="10" stroke-linecap="round" stroke-dasharray="248 327" transform="rotate(-90 60 60)"/></svg>
+        <div class="score"><b class="grad">1088</b><span>PC XTREME SCORE</span></div>
+      </div>
+      <div class="bars">
+        <div class="row"><b><span>PROCESSADOR</span><span>1059</span></b><div class="tr"><i style="width:68%"></i></div></div>
+        <div class="row"><b><span>PLACA DE VÍDEO</span><span>1034</span></b><div class="tr"><i style="width:64%;background:linear-gradient(90deg,#8b5cf6,#ff2e97)"></i></div></div>
+        <div class="row"><b><span>MEMÓRIA</span><span>1092</span></b><div class="tr"><i style="width:70%;background:linear-gradient(90deg,#00e5ff,#2bf5a6)"></i></div></div>
+        <div class="row"><b><span>DISCO</span><span>1256</span></b><div class="tr"><i style="width:82%;background:linear-gradient(90deg,#2bf5a6,#00e5ff)"></i></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<section class="feats"><div class="wrap">
+  <div class="h2">Tudo o que seu PC precisa, <span class="grad">num lugar só</span></div>
+  <p class="lead">Sem termo técnico, sem complicação. O PC Xtreme mede, mostra e resolve.</p>
+  <div class="grid">
+    <div class="card"><div class="ic">◆</div><h3>Benchmark com nota</h3><p>Mede processador, placa de vídeo, memória e disco e dá uma nota única ao seu PC — com o antes e depois.</p></div>
+    <div class="card"><div class="ic">▣</div><h3>FPS na tela</h3><p>Painel por cima do jogo com FPS, temperatura e uso de cada peça, em 3 tamanhos e com o visual do app.</p></div>
+    <div class="card"><div class="ic">⚡</div><h3>Boost para jogos</h3><p>Um clique deixa o PC no modo máximo e volta ao normal sozinho quando você fecha o jogo.</p></div>
+    <div class="card"><div class="ic">◍</div><h3>Por que tá lento agora?</h3><p>Um raio-X do que está pesando no processador, memória, disco e internet neste instante — explicado de forma simples.</p></div>
+    <div class="card"><div class="ic">♡</div><h3>Saúde do PC</h3><p>Acompanha a temperatura e o desgaste do SSD ao longo do tempo e avisa antes de virar problema.</p></div>
+    <div class="card"><div class="ic">⟳</div><h3>Drivers e otimizações</h3><p>Lista todos os drivers, atualiza os que estão atrasados e aplica ajustes seguros do Windows para jogos.</p></div>
+  </div>
+</div></section>
+
+<section class="planos"><div class="wrap">
+  <div class="h2">Comece <span class="grad">grátis</span></div>
+  <p class="lead">Baixe e use sem pagar nada. Quer tudo liberado? Teste o Premium por 7 dias e escolha um plano.</p>
+  <div class="pgrid">
+    <div class="plan"><h4>Mensal</h4><div class="pr">R$ 9,90</div><div class="per">por mês</div><div class="det">Cancele quando quiser.</div></div>
+    <div class="plan dest"><span class="tag">MELHOR CUSTO</span><h4>Anual</h4><div class="pr">R$ 59,90</div><div class="per">por ano</div><div class="det">Sai por R$ 4,99/mês — metade do preço do mensal.</div></div>
+    <div class="plan"><h4>Vitalício</h4><div class="pr">R$ 149,90</div><div class="per">pagamento único</div><div class="det">Paga uma vez e tem tudo pra sempre, com todas as atualizações.</div></div>
+  </div>
+</div></section>
+
+<section class="final"><div class="wrap">
+  <div class="h2">Pronto para turbinar seu PC?</div>
+  <p class="lead">Baixe agora, grátis. Leva menos de um minuto para instalar.</p>
+  <a class="btn pri" href="https://github.com/thiagoplima84-tech/pc-xtreme/releases/latest">⬇ Baixar o PC Xtreme</a>
+</div></section>
+
+<footer><div class="wrap">PC Xtreme · desenvolvido por <b style="color:var(--ink)">Tmurat</b> · © 2026 · Windows 10 e 11</div></footer>
+
+</body>
+</html>
