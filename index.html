@@ -151,5 +151,24 @@ footer{border-top:1px solid var(--line);margin-top:60px;padding:26px 0;text-alig
 
 <footer><div class="wrap">PC Xtreme · desenvolvido por <b style="color:var(--ink)">Tmurat</b> · © 2026 · Windows 10 e 11</div></footer>
 
+ <script>
+(function(){
+  var REPO='thiagoplima84-tech/pc-xtreme';
+  fetch('https://api.github.com/repos/'+REPO+'/releases/latest')
+    .then(function(r){return r.ok?r.json():null})
+    .then(function(rel){
+      if(!rel||!rel.assets)return;
+      var exe=rel.assets.find(function(a){return /\.exe$/i.test(a.name)});
+      var zip=rel.assets.find(function(a){return /\.zip$/i.test(a.name)});
+      var alvo=exe||zip;
+      if(!alvo)return;
+      document.querySelectorAll('a[href*="releases/latest"]').forEach(function(b){
+        b.href=alvo.browser_download_url;
+        b.setAttribute('download','');
+      });
+    })
+    .catch(function(){});
+})();
+</script>
 </body>
 </html>
